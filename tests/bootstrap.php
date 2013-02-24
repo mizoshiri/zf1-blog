@@ -8,11 +8,18 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'testing'));
 
+set_include_path(
+  '/vagrant/sazae/ZendFramework-1.12.1/library/' .
+  PATH_SEPARATOR . get_include_path() .
+  PATH_SEPARATOR . '.'
+);
+/*
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(APPLICATION_PATH . '/../library'),
     get_include_path(),
 )));
+*/
 
 require_once 'Zend/Loader/Autoloader.php';
 Zend_Loader_Autoloader::getInstance();
